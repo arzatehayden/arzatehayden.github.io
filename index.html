@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ✏️  EDIT: Update your name and tagline below -->
+  <title>Alex Morgan — Computer Engineer</title>
+  <meta name="description" content="Computer Engineer specializing in embedded systems and software development." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --bg:          #F8F7F4;
+      --surface:     #FFFFFF;
+      --text:        #1A1917;
+      --muted:       #6B6860;
+      --border:      #E4E1DA;
+      --accent:      #1D4ED8;
+      --accent-soft: #EEF2FF;
+      --radius:      10px;
+      --max:         860px;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Layout ── */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 247, 244, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 7rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dot-grid decoration */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, #c8c4bb 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; }
+
+    .hero-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.35s;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.5s;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      border-radius: var(--radius);
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .btn-primary:hover { background: #333; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--text); }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 5rem 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .about-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .detail-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .detail-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .detail-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .skill-category h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--surface);
+      transition: all 0.2s;
+    }
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* ── PROJECTS ── */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover {
+      border-color: #c8c4bb;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    }
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+    .project-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 3px;
+    }
+    .project-link:hover { text-decoration: underline; }
+    .project-desc {
+      font-size: 14.5px;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 1.1rem;
+      line-height: 1.65;
+    }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .stack-tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 0.2rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 3rem;
+    }
+    .contact-text p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 420px;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      align-items: flex-end;
+    }
+    .contact-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--text);
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .contact-link:hover { color: var(--accent); }
+    .contact-link-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 54px;
+      text-align: right;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── Scroll animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Keyframes ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .about-grid    { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .contact-links { align-items: flex-start; }
+      .footer-inner  { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .nav-links     { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════
+       NAV
+       ════════════════════════════════ -->
+  <nav>
+    <div class="nav-inner">
+      <!-- ✏️  EDIT: Your initials or short handle -->
+      <span class="nav-logo">AM.dev</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════
+       HERO
+       ════════════════════════════════ -->
+  <section id="hero">
+    <div class="wrap hero-content">
+      <p class="hero-label">Computer Engineer</p>
+
+      <!-- ✏️  EDIT: Your name -->
+      <h1>Alex Morgan</h1>
+
+      <!-- ✏️  EDIT: Your tagline — one or two sentences about what you do -->
+      <p class="hero-tagline">
+        I design and build systems where hardware meets software — from
+        low-level firmware to full-stack applications.
+      </p>
+
+      <div class="hero-cta">
+        <!-- ✏️  EDIT: Link to your resume PDF -->
+        <a href="resume.pdf" class="btn btn-primary">View Résumé</a>
+        <a href="#contact" class="btn btn-secondary">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       ABOUT
+       ════════════════════════════════ -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+
+        <div class="about-text reveal">
+          <p class="section-label">About</p>
+          <h2>A bit about me</h2>
+
+          <!-- ✏️  EDIT: Your bio — 2–3 short paragraphs -->
+          <p>
+            I'm a Computer Engineering graduate with a passion for building
+            efficient, reliable systems. I enjoy working across the full
+            stack — from writing bare-metal C for microcontrollers to
+            shipping web applications.
+          </p>
+          <p>
+            Outside of work I tinker with side projects, contribute to
+            open-source, and read far too many papers about processor
+            architecture.
+          </p>
+        </div>
+
+        <div class="about-details reveal">
+          <!-- ✏️  EDIT: Update each detail with your real info -->
+          <div class="detail-row">
+            <span class="detail-label">Location</span>
+            <span class="detail-value">Mobile, Alabama</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Education</span>
+            <span class="detail-value">B.S. Computer Engineering<br>University of South Alabama</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <span class="detail-value">Open to opportunities</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Email</span>
+            <span class="detail-value">
+              <!-- ✏️  EDIT: Your email -->
+              <a href="mailto:alex@example.com" style="color:var(--accent)">alex@example.com</a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       SKILLS
+       ════════════════════════════════ -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="section-label reveal">Skills</p>
+      <h2 class="reveal">What I work with</h2>
+
+      <div class="skills-grid">
+
+        <!-- ✏️  EDIT: Add/remove/rename skills in each category -->
+        <div class="skill-category reveal">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span class="tag">C / C++</span>
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Assembly (x86 / ARM)</span>
+            <span class="tag">VHDL</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3>Hardware &amp; Embedded</h3>
+          <div class="skill-tags">
+            <span class="tag">Embedded C</span>
+            <span class="tag">RTOS</span>
+            <span class="tag">FPGA Design</span>
+            <span class="tag">Microcontrollers</span>
+            <span class="tag">I²C / SPI / UART</span>
+            <span class="tag">PCB Prototyping</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal">
+          <h3>Software &amp; Tools</h3>
+          <div class="skill-tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Git</span>
+            <span class="tag">Docker</span>
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">SQL</span>
+            <span class="tag">MATLAB</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       PROJECTS
+       ════════════════════════════════ -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="section-label reveal">Projects</p>
+      <h2 class="reveal">Things I've built</h2>
+
+      <div class="projects-list">
+
+        <!-- ✏️  EDIT: Replace each card with one of your real projects -->
+
+        <div class="project-card reveal">
+          <div class="project-header">
+            <span class="project-title">Autonomous Soil Monitor</span>
+            <!-- ✏️  EDIT: Replace with your GitHub / live link, or remove -->
+            <a href="https://github.com" class="project-link">github →</a>
+          </div>
+          <p class="project-desc">
+            Battery-powered embedded sensor node that logs soil moisture,
+            temperature, and pH data to the cloud over LoRa. Sleeps at
+            20 µA between readings; custom PCB designed in KiCad.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">C</span>
+            <span class="stack-tag">STM32</span>
+            <span class="stack-tag">LoRa</span>
+            <span class="stack-tag">KiCad</span>
+            <span class="stack-tag">Python</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-header">
+            <span class="project-title">RISC-V Soft Core</span>
+            <a href="https://github.com" class="project-link">github →</a>
+          </div>
+          <p class="project-desc">
+            32-bit RV32I soft-core processor implemented in VHDL and
+            synthesised onto a Xilinx Artix-7 FPGA. Passes the official
+            RISC-V compliance test suite.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">VHDL</span>
+            <span class="stack-tag">FPGA</span>
+            <span class="stack-tag">Vivado</span>
+            <span class="stack-tag">RISC-V</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-header">
+            <span class="project-title">Lab Equipment Dashboard</span>
+            <a href="https://github.com" class="project-link">github →</a>
+          </div>
+          <p class="project-desc">
+            Web dashboard that aggregates live data from bench instruments
+            (oscilloscopes, power supplies) via USB-VISA and renders
+            real-time waveforms in the browser.
+          </p>
+          <div class="project-stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">PyVISA</span>
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">WebSocket</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       CONTACT
+       ════════════════════════════════ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-inner">
+        <div class="about-text reveal">
+          <p class="section-label">Contact</p>
+          <h2>Let's talk</h2>
+          <!-- ✏️  EDIT: Tweak this short note -->
+          <p>
+            Whether you have a role in mind, a project to collaborate on,
+            or just want to say hello — my inbox is open.
+          </p>
+        </div>
+
+        <div class="contact-links reveal">
+          <!-- ✏️  EDIT: Replace with your real links -->
+          <a href="mailto:alex@example.com" class="contact-link">
+            <span class="contact-link-label">Email</span>
+            alex@example.com
+          </a>
+          <a href="https://linkedin.com/in/yourhandle" class="contact-link">
+            <span class="contact-link-label">LinkedIn</span>
+            in/yourhandle
+          </a>
+          <a href="https://github.com/yourhandle" class="contact-link">
+            <span class="contact-link-label">GitHub</span>
+            @yourhandle
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       FOOTER
+       ════════════════════════════════ -->
+  <footer>
+    <div class="wrap footer-inner">
+      <!-- ✏️  EDIT: Your name -->
+      <span class="footer-copy">© 2026 Alex Morgan</span>
+      <span class="footer-copy">Built with plain HTML — no frameworks needed.</span>
+    </div>
+  </footer>
+
+  <!-- ── Scroll-reveal script ── -->
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
