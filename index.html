@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ✏️  EDIT: Update your name and tagline below -->
   <title>Hayden Arzate — Computer Engineer</title>
   <meta name="description" content="Computer Engineer specializing in embedded systems and hardware design." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Tokens ── */
     :root {
       --bg:          #F8F7F4;
       --surface:     #FFFFFF;
@@ -26,7 +23,6 @@
       --max:         860px;
     }
 
-    /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -40,14 +36,12 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    /* ── Layout ── */
     .wrap {
       max-width: var(--max);
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    /* ── NAV ── */
     nav {
       position: sticky;
       top: 0;
@@ -85,14 +79,11 @@
     }
     .nav-links a:hover { color: var(--text); }
 
-    /* ── HERO ── */
     #hero {
       padding: 7rem 0 5rem;
       position: relative;
       overflow: hidden;
     }
-
-    /* Dot-grid decoration */
     #hero::before {
       content: '';
       position: absolute;
@@ -102,7 +93,6 @@
       opacity: 0.35;
       pointer-events: none;
     }
-
     .hero-content { position: relative; }
 
     .hero-label {
@@ -116,7 +106,6 @@
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.1s;
     }
-
     h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3rem, 7vw, 5.5rem);
@@ -128,7 +117,6 @@
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.2s;
     }
-
     .hero-tagline {
       font-size: 1.15rem;
       font-weight: 300;
@@ -138,7 +126,6 @@
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.35s;
     }
-
     .hero-cta {
       display: flex;
       gap: 1rem;
@@ -146,7 +133,6 @@
       opacity: 0;
       animation: fadeUp 0.6s ease forwards 0.5s;
     }
-
     .btn {
       display: inline-block;
       padding: 0.65rem 1.5rem;
@@ -157,19 +143,11 @@
       cursor: pointer;
       transition: all 0.2s;
     }
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-    }
+    .btn-primary { background: var(--text); color: var(--bg); }
     .btn-primary:hover { background: #333; }
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .btn-secondary:hover { border-color: var(--text); }
 
-    /* ── SECTION SHARED ── */
     section { padding: 5rem 0; }
     section + section { border-top: 1px solid var(--border); }
 
@@ -182,7 +160,6 @@
       color: var(--accent);
       margin-bottom: 0.75rem;
     }
-
     h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 4vw, 2.75rem);
@@ -191,7 +168,6 @@
       margin-bottom: 1.75rem;
     }
 
-    /* ── ABOUT ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -203,16 +179,8 @@
       margin-bottom: 1rem;
       font-weight: 300;
     }
-    .about-details {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-    .detail-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
+    .about-details { display: flex; flex-direction: column; gap: 1.25rem; }
+    .detail-row { display: flex; flex-direction: column; gap: 0.2rem; }
     .detail-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
@@ -220,18 +188,9 @@
       text-transform: uppercase;
       color: var(--muted);
     }
-    .detail-value {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text);
-    }
+    .detail-value { font-size: 15px; font-weight: 500; color: var(--text); }
 
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
+    .skills-grid { display: flex; flex-direction: column; gap: 2rem; }
     .skill-category h3 {
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
@@ -241,11 +200,7 @@
       color: var(--muted);
       margin-bottom: 0.85rem;
     }
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .tag {
       padding: 0.35rem 0.9rem;
       border: 1px solid var(--border);
@@ -256,18 +211,9 @@
       background: var(--surface);
       transition: all 0.2s;
     }
-    .tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-soft);
-    }
+    .tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
 
-    /* ── PROJECTS ── */
-    .projects-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
+    .projects-list { display: flex; flex-direction: column; gap: 1.25rem; }
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -306,11 +252,7 @@
       margin-bottom: 1.1rem;
       line-height: 1.65;
     }
-    .project-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .stack-tag {
       background: var(--accent-soft);
       color: var(--accent);
@@ -321,7 +263,6 @@
       border-radius: 4px;
     }
 
-    /* ── CONTACT ── */
     .contact-inner {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -334,12 +275,7 @@
       color: var(--muted);
       max-width: 420px;
     }
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      align-items: flex-end;
-    }
+    .contact-links { display: flex; flex-direction: column; gap: 0.85rem; align-items: flex-end; }
     .contact-link {
       font-family: 'JetBrains Mono', monospace;
       font-size: 13px;
@@ -359,40 +295,22 @@
       text-align: right;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-copy {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-    }
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); }
 
-    /* ── Scroll animations ── */
     .reveal {
       opacity: 0;
       transform: translateY(18px);
       transition: opacity 0.55s ease, transform 0.55s ease;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── Keyframes ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: none; }
     }
 
-    /* ── Responsive ── */
     @media (max-width: 640px) {
       .about-grid    { grid-template-columns: 1fr; gap: 2rem; }
       .contact-inner { grid-template-columns: 1fr; }
@@ -404,12 +322,8 @@
 </head>
 <body>
 
-  <!-- ════════════════════════════════
-       NAV
-       ════════════════════════════════ -->
   <nav>
     <div class="nav-inner">
-      <!-- ✏️  EDIT: Your initials or short handle -->
       <span class="nav-logo">HA.dev</span>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -420,33 +334,21 @@
     </div>
   </nav>
 
-  <!-- ════════════════════════════════
-       HERO
-       ════════════════════════════════ -->
   <section id="hero">
     <div class="wrap hero-content">
       <p class="hero-label">Computer Engineer</p>
-
-      <!-- ✏️  EDIT: Your name -->
       <h1>Hayden Arzate</h1>
-
-      <!-- ✏️  EDIT: Your tagline — one or two sentences about what you do -->
       <p class="hero-tagline">
         I design and build systems where hardware meets software — from
-        low-level firmware to field ready FPGAs.
+        low-level firmware to field-ready FPGAs.
       </p>
-
       <div class="hero-cta">
-        <!-- ✏️  EDIT: Link to your resume PDF -->
         <a href="resume.pdf" class="btn btn-primary">View Résumé</a>
         <a href="#contact" class="btn btn-secondary">Get in touch</a>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       ABOUT
-       ════════════════════════════════ -->
   <section id="about">
     <div class="wrap">
       <div class="about-grid">
@@ -454,22 +356,20 @@
         <div class="about-text reveal">
           <p class="section-label">About</p>
           <h2>A bit about me</h2>
-
-          <!-- ✏️  EDIT: Your bio — 2–3 short paragraphs -->
           <p>
             I'm a Computer Engineering graduate from LSU with a passion for building
             efficient, reliable systems. I enjoy working across the full
             stack — from writing bare-metal C for microcontrollers to
-            designing hardware to solve problems.
+            designing hardware to solve real problems.
           </p>
           <p>
-            Outside of work I tinker with side projects like 3D Printing and messing around with self hosted 
-            open-source software for my homelab along with keeping upto date with some of the latest hardware news.
+            Outside of work I tinker with side projects like 3D printing and self-hosted
+            open-source software for my homelab, while keeping up to date with the latest
+            hardware news.
           </p>
         </div>
 
         <div class="about-details reveal">
-          <!-- ✏️  EDIT: Update each detail with your real info -->
           <div class="detail-row">
             <span class="detail-label">Location</span>
             <span class="detail-value">Prairieville, Louisiana</span>
@@ -485,8 +385,7 @@
           <div class="detail-row">
             <span class="detail-label">Email</span>
             <span class="detail-value">
-              <!-- ✏️  EDIT: Your email -->
-              <a href="mailto:arzatehayden@gmail.com" style="color:var(--accent)">alex@example.com</a>
+              <a href="mailto:arzatehayden@gmail.com" style="color:var(--accent)">arzatehayden@gmail.com</a>
             </span>
           </div>
         </div>
@@ -495,9 +394,6 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       SKILLS
-       ════════════════════════════════ -->
   <section id="skills">
     <div class="wrap">
       <p class="section-label reveal">Skills</p>
@@ -505,7 +401,6 @@
 
       <div class="skills-grid">
 
-        <!-- ✏️  EDIT: Add/remove/rename skills in each category -->
         <div class="skill-category reveal">
           <h3>Languages</h3>
           <div class="skill-tags">
@@ -521,10 +416,8 @@
           <h3>Hardware &amp; Embedded</h3>
           <div class="skill-tags">
             <span class="tag">Embedded C</span>
-            <span class="tag">RTOS</span>
             <span class="tag">FPGA Design</span>
             <span class="tag">Microcontrollers</span>
-            <span class="tag">I²C / SPI / UART</span>
             <span class="tag">PCB Prototyping</span>
           </div>
         </div>
@@ -538,7 +431,7 @@
             <span class="tag">Docker</span>
             <span class="tag">MATLAB</span>
             <span class="tag">FreeCAD</span>
-            <span class="tag">KiCAD</span>
+            <span class="tag">KiCad</span>
             <span class="tag">PSpice</span>
           </div>
         </div>
@@ -547,9 +440,6 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       PROJECTS
-       ════════════════════════════════ -->
   <section id="projects">
     <div class="wrap">
       <p class="section-label reveal">Projects</p>
@@ -557,61 +447,43 @@
 
       <div class="projects-list">
 
-        <!-- ✏️  EDIT: Replace each card with one of your real projects -->
-
         <div class="project-card reveal">
           <div class="project-header">
-            <span class="project-title">Autonomous Soil Monitor</span>
-            <!-- ✏️  EDIT: Replace with your GitHub / live link, or remove -->
-            <a href="https://github.com" class="project-link">github →</a>
+            <span class="project-title">The Page Turner — Mobile Library Trailer</span>
+            <a href="https://www.lsu.edu/eng/news-stories/2026/05/ebrp-library-mobile-book-bike.php" class="project-link">lsu.edu →</a>
           </div>
           <p class="project-desc">
-            Battery-powered embedded sensor node that logs soil moisture,
-            temperature, and pH data to the cloud over LoRa. Sleeps at
-            20 µA between readings; custom PCB designed in KiCad.
+            LSU Engineering senior capstone project delivering a fully custom mobile library
+            trailer — "The Page Turner" — to the East Baton Rouge Parish Library. As Electrical
+            Lead, I designed the complete circuit diagram in KiCad, specifying and sourcing all
+            components including DC battery, bus bars, DC-to-AC inverter, battery monitor, charger,
+            fuses, and multi-gauge wiring to supply both 120V AC and DC power. Led a 3-person
+            electrical sub-team within a 7-person cross-disciplinary group and presented the final
+            design to a panel of industry professionals and faculty.
           </p>
           <div class="project-stack">
-            <span class="stack-tag">C</span>
-            <span class="stack-tag">STM32</span>
-            <span class="stack-tag">LoRa</span>
             <span class="stack-tag">KiCad</span>
-            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Electrical Design</span>
+            <span class="stack-tag">DC / AC Systems</span>
+            <span class="stack-tag">PCB</span>
+            <span class="stack-tag">Team Lead</span>
           </div>
         </div>
 
         <div class="project-card reveal">
           <div class="project-header">
-            <span class="project-title">RISC-V Soft Core</span>
-            <a href="https://github.com" class="project-link">github →</a>
+            <span class="project-title">CAD Product Design</span>
           </div>
           <p class="project-desc">
-            32-bit RV32I soft-core processor implemented in VHDL and
-            synthesised onto a Xilinx Artix-7 FPGA. Passes the official
-            RISC-V compliance test suite.
+            Designed and modeled consumer products in FreeCAD, including a pocket-sized magnetic
+            parts tray and a clamp-mounted desktop headphone stand with a custom securing mechanism.
+            Built hands-on experience in 3D modeling, prototyping, and iterative product development.
           </p>
           <div class="project-stack">
-            <span class="stack-tag">VHDL</span>
-            <span class="stack-tag">FPGA</span>
-            <span class="stack-tag">Vivado</span>
-            <span class="stack-tag">RISC-V</span>
-          </div>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="project-header">
-            <span class="project-title">Lab Equipment Dashboard</span>
-            <a href="https://github.com" class="project-link">github →</a>
-          </div>
-          <p class="project-desc">
-            Web dashboard that aggregates live data from bench instruments
-            (oscilloscopes, power supplies) via USB-VISA and renders
-            real-time waveforms in the browser.
-          </p>
-          <div class="project-stack">
-            <span class="stack-tag">Python</span>
-            <span class="stack-tag">PyVISA</span>
-            <span class="stack-tag">React</span>
-            <span class="stack-tag">WebSocket</span>
+            <span class="stack-tag">FreeCAD</span>
+            <span class="stack-tag">3D Modeling</span>
+            <span class="stack-tag">Prototyping</span>
+            <span class="stack-tag">Product Design</span>
           </div>
         </div>
 
@@ -619,16 +491,12 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       CONTACT
-       ════════════════════════════════ -->
   <section id="contact">
     <div class="wrap">
       <div class="contact-inner">
         <div class="about-text reveal">
           <p class="section-label">Contact</p>
           <h2>Let's talk</h2>
-          <!-- ✏️  EDIT: Tweak this short note -->
           <p>
             Whether you have a role in mind, a project to collaborate on,
             or just want to say hello — my inbox is open.
@@ -636,32 +504,26 @@
         </div>
 
         <div class="contact-links reveal">
-          <!-- ✏️  EDIT: Replace with your real links -->
           <a href="mailto:arzatehayden@gmail.com" class="contact-link">
             <span class="contact-link-label">Email</span>
             arzatehayden@gmail.com
           </a>
-          <a href="www.linkedin.com/in/hayden-arzate-b70ab1354" class="contact-link">
+          <a href="https://www.linkedin.com/in/hayden-arzate-b70ab1354" class="contact-link">
             <span class="contact-link-label">LinkedIn</span>
-            www.linkedin.com/in/hayden-arzate-b70ab1354
+            in/hayden-arzate
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════
-       FOOTER
-       ════════════════════════════════ -->
   <footer>
     <div class="wrap footer-inner">
-      <!-- ✏️  EDIT: Your name -->
       <span class="footer-copy">© 2026 Hayden Arzate</span>
       <span class="footer-copy">Built with plain HTML.</span>
     </div>
   </footer>
 
-  <!-- ── Scroll-reveal script ── -->
   <script>
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => {
